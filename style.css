@@ -1,0 +1,396 @@
+/* ===========================
+   1. RESET & VARIABLES
+=========================== */
+:root {
+  --mocha: #A5856F;
+  --mocha-dark: #7a6150;
+  --ethereal-blue: #A0D4E0;
+  --moonlit-grey: #F2F0EA;
+  --text-dark: #3B2F2A;
+  --white: #FFFFFF;
+
+  --font-heading: 'Montserrat', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+
+  --radius: 12px;
+  --transition: 0.3s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--text-dark);
+  background-color: var(--moonlit-grey);
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* Fluid typography */
+h1 {
+  font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
+}
+
+h2.section-title {
+  font-size: clamp(1.6rem, 3vw + 1rem, 2.5rem);
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--mocha-dark);
+  margin-bottom: 2.5rem;
+}
+
+/* ===========================
+   2. BUTTONS
+=========================== */
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius);
+  font-weight: 600;
+  transition: transform var(--transition), background var(--transition);
+}
+
+.btn-primary {
+  background-color: var(--mocha);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background-color: var(--mocha-dark);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--ethereal-blue);
+  color: var(--text-dark);
+  margin-top: 1rem;
+}
+
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+/* ===========================
+   3. HEADER & NAV (Flexbox)
+=========================== */
+.site-header {
+  background-color: var(--white);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--mocha-dark);
+}
+
+.logo span {
+  color: var(--ethereal-blue);
+}
+
+/* Hamburger - visible on mobile */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 110;
+}
+
+.hamburger span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: var(--text-dark);
+  border-radius: 2px;
+  transition: transform var(--transition), opacity var(--transition);
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(8.5px) rotate(45deg);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-8.5px) rotate(-45deg);
+}
+
+/* Mobile nav: hidden off-canvas by default */
+.main-nav {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  transition: right var(--transition);
+  box-shadow: -4px 0 10px rgba(0,0,0,0.1);
+}
+
+.main-nav.active {
+  right: 0;
+}
+
+.main-nav ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.main-nav ul a {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* ===========================
+   4. HERO SECTION
+=========================== */
+.hero {
+  background-size: cover;
+  background-position: center;
+  color: var(--white);
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.hero-content p {
+  margin: 1rem 0 1.5rem;
+  font-size: clamp(1rem, 2vw + 0.5rem, 1.25rem);
+}
+
+.hero .btn-primary {
+  background-color: var(--white);
+  color: var(--mocha-dark);
+}
+
+.hero .btn-primary:hover {
+  background-color: var(--moonlit-grey);
+}
+
+/* ===========================
+   5. MENU SECTION (CSS Grid)
+=========================== */
+.menu-section {
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: single column */
+  gap: 1.5rem;
+}
+
+.menu-card {
+  background-color: var(--white);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.menu-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 0.75rem;
+  background-color: var(--moonlit-grey); /* shows if image fails or while loading, prevents CLS */
+}
+
+.menu-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.menu-card p {
+  font-size: 0.9rem;
+  color: #5c5048;
+  margin-bottom: 0.75rem;
+}
+
+.price {
+  font-weight: 700;
+  color: var(--mocha-dark);
+}
+
+/* ===========================
+   6. ABOUT SECTION
+=========================== */
+.about-section {
+  background-color: var(--white);
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.about-text {
+  max-width: 700px;
+  margin: 0 auto;
+  color: #5c5048;
+}
+
+/* ===========================
+   7. LOCATION SECTION (CSS Grid)
+=========================== */
+.location-section {
+  padding: 4rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* mobile: stacked */
+  gap: 1.5rem;
+}
+
+.location-info {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: var(--radius);
+}
+
+.location-info p {
+  margin-bottom: 0.75rem;
+}
+
+.location-map {
+  background-color: var(--ethereal-blue);
+  border-radius: var(--radius);
+  overflow: hidden;
+  min-height: 250px;
+}
+
+.location-map iframe {
+  display: block;
+  min-height: 250px;
+}
+
+/* ===========================
+   8. FOOTER
+=========================== */
+.site-footer {
+  background-color: var(--mocha-dark);
+  color: var(--moonlit-grey);
+  text-align: center;
+  padding: 2rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin-bottom: 0.3rem;
+}
+
+/* ===========================
+   9. TABLET BREAKPOINT (768px+)
+=========================== */
+@media (min-width: 768px) {
+
+  .hamburger {
+    display: none;
+  }
+
+  .main-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    background: transparent;
+    box-shadow: none;
+    gap: 1.5rem;
+  }
+
+  .main-nav ul {
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .location-grid {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+/* ===========================
+   10. DESKTOP BREAKPOINT (1024px+)
+=========================== */
+@media (min-width: 1024px) {
+
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .hero {
+    min-height: 70vh;
+  }
+}
