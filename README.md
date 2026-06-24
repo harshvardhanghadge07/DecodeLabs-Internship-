@@ -3,10 +3,13 @@
 A fully responsive cafe landing page built with **pure HTML, CSS, and JavaScript** — no frameworks. Built as **Project 1: Responsive Frontend Interface** for the DecodeLabs Full Stack Internship.
 
 ## 🔗 Live Demo
-[View Live Site](#) 
+file:///c%3A/Users/harshvardhan/OneDrive/Documents/GitHub/DecodeLabs-Internship-/index.html#menu
 
 ## 📸 Preview
-![Cafe Landing Page Preview](#) 
+<img width="1887" height="912" alt="Screenshot 2026-06-24 231438" src="https://github.com/user-attachments/assets/342c746b-fe0f-4f02-bc99-3de836eb7376" />
+
+<img width="1882" height="907" alt="image" src="https://github.com/user-attachments/assets/2d30e6e0-554b-4021-8760-6053f1187371" />
+
 
 ## ✨ Features
 - **Fully responsive** — mobile-first design with breakpoints at 768px (tablet) and 1024px (desktop)
